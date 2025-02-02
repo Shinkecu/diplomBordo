@@ -30,6 +30,12 @@ class Controller extends BaseController
         $reviews = Review::all();
         return view('home', compact('masters', 'categories', 'reviews'));
     }
+
+    public function example()
+    {
+        return view('example');
+    }
+
     public function indexMaster($master_id){
     $master = Master::with('services.category')->findOrFail($master_id);
     $images = Image::where('master_id', $master->id)->get();
