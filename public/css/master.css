@@ -1,0 +1,173 @@
+.navbar {height: 11em;}
+.logo-main {font-family: 'aboreto-regular';font-size: 64px;}
+.logo-sub .text {font-size: 28px;}
+.leaf {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    z-index: 0;
+}
+
+.leaf.left {
+    left: 0px;
+    width: 25%;
+    content: url('/images/leaf-left.png');
+}
+
+.leaf.right {
+    right: -0px;
+    width: 25%;
+    content: url('/images/leaf-right.png');
+}
+.master-image {
+    width: 100%;
+     /* Задайте фиксированную высоту для всех изображений */
+    object-fit: cover; /* Обеспечивает обрезку изображения, чтобы оно заполнило контейнер */
+}
+
+.master-information-name {
+    font-size: 36px;
+}
+
+.master-info {
+    font-size: 24px;
+}
+
+.master-info nobr {
+    font-family: 'playfair';
+    font-size: 32px;
+}
+
+.master-information-button {
+    background-color: #66836E;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px; /* Добавьте отступ сверху для кнопки */
+}
+/* -------------------------------------------slider------------------------------------------------- */
+.slider-container {
+    overflow: hidden;
+    width: 70%;
+    margin: auto;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.slider {
+    display: flex;
+    animation: slide 30s infinite;
+}
+
+.slider img {
+    width: 300px; /* Установите фиксированную ширину для изображений */
+    height: auto; /* Высота будет автоматически подстраиваться */
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.slider-names {
+    margin-top: 20px;
+    font-family: 'kaiseiopti-regular';
+}
+/* -------------------------------------------master-services------------------------------------------------- */
+.services {
+    width: 90%;
+    margin: auto;
+    font-family: 'kaiseiopti-regular';
+    text-align: center;
+}
+
+.services h1 {
+    font-size: 36px;
+    margin-top: 200px;
+    color: #333; /* Цвет заголовка */
+}
+
+.services_container {
+    margin-top: 100px;
+}
+
+.service {
+    margin-bottom: 15px;
+    border-radius: 5px; /* Закругление углов */
+    overflow: hidden; /* Скрытие переполнения */
+}
+
+.service-button {
+    background-color: white;
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    text-align: left;
+    font-size: 24px;
+    width: 100%;
+    position: relative;
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.service-button:hover {
+    background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+.service-list {
+    display: none;
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    animation: slideDown 0.3s ease;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    transition: box-shadow 0.3s;
+    font-family: 'playfair';
+}
+
+.service-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+}
+
+.service-title {
+    margin: 0;
+    color: #333;
+}
+
+.service-price {
+    color: #666;
+}
+
+.service-list a {
+    text-decoration: none; /* Убрать подчеркивание */
+}
+
+.service.open .service-list {
+    display: block;
+}
+
+.service-arrow {
+    float: right;
+    transition: transform 0.3s; /* Плавный переход для стрелки */
+}
+
+.service.open .service-arrow {
+    transform: rotate(180deg); /* Поворот стрелки при открытии */
+}

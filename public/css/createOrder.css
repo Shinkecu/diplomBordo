@@ -1,0 +1,57 @@
+.navbar {height: 11em;}
+.logo-main {font-family: 'aboreto-regular';font-size: 64px;}
+.logo-sub .text {font-size: 28px;}
+.leaf {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    z-index: 0;
+}
+
+.leaf.left {
+    left: 0px;
+    width: 25%;
+    content: url('/images/leaf-left.png');
+}
+
+.leaf.right {
+    right: -0px;
+    width: 25%;
+    content: url('/images/leaf-right.png');
+}
+.service-description {
+    font-family: 'playfair';
+    font-size: 24px;
+    text-align:center;
+}
+/* -------------------------------------------form------------------------------------------------- */
+.form_button {
+    background-color: #66836E;
+    color: white;
+    border-radius: 15px;
+    padding: 15px 30px; /* Увеличиваем внутренние отступы для кнопки */
+    font-size: 18px; /* Увеличиваем размер шрифта кнопки */
+}
+
+.form-line {
+    border-radius: 15px;
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    padding: 10px; /* Увеличиваем внутренние отступы */
+}
+
+.form-container {
+    background-color: #EAEAEA;
+    border-radius: 15px;
+    padding: 20px; /* Добавляем отступы внутри формы */
+}
+
+/* Стили для светлого текста внутри полей */
+.form-control::placeholder {
+    color: #B0B0B0; /* Цвет текста плейсхолдера */
+    opacity: 1; /* Убираем прозрачность */
+}
+.date-form,
+.form-select {
+    font-family: 'playfair';
+}
+
