@@ -18,9 +18,7 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
-//Route::get('/', [Controller::class, 'home'])->name('home');
-
-Route::get('/', [Controller::class, 'example'])->name('home');
+Route::get('/', [Controller::class, 'home'])->name('home');
 
 Route::get('/create', [ReviewController::class, 'create'])->name('createReview');
 

@@ -31,10 +31,6 @@ class Controller extends BaseController
         return view('home', compact('masters', 'categories', 'reviews'));
     }
 
-    public function example()
-    {
-        return view('example');
-    }
 
     public function indexMaster($master_id){
     $master = Master::with('services.category')->findOrFail($master_id);
