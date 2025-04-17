@@ -1,5 +1,14 @@
 @extends('layout')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <link href="{{ asset('css/createOrder.css') }}" rel="stylesheet">
     <div class="leaf left"></div>
     <div class="leaf right"></div>
@@ -76,9 +85,10 @@
                             required>
                     </div>
                     <div class="col-md-6">
-                        <label for="time" class="form-label ">Выберите Время</label>
-                        <input type="time" id="time" name="time" class="date-form form-control form-line"
-                            required>
+                        <label for="time" class="form-label">Выберите Время</label>
+                        <select id="time" name="time" class="date-form form-control form-line" required>
+                            <option value="">Выберите время</option>
+                        </select>
                     </div>
                 </div>
 
@@ -92,4 +102,35 @@
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#date').change(function() {
+                var selectedDate = $(this).val();
+                var masterId = $('select[name="master"]').val();
+
+                if (selectedDate && masterId) {
+                    $.ajax({
+                        url: '/getAvailableTimes/' + masterId + '/' + selectedDate,
+                        type: 'GET',
+                        success: function(response) {
+                            console.log(response); // Проверьте, что данные приходят в консоли
+                            var timeSelect = $('#time');
+                            timeSelect.empty();
+                            timeSelect.append('<option value="">Выберите время</option>');
+
+                            // Добавляем доступные времена в выпадающий список
+                            response.forEach(function(time) {
+                                var option = $('<option>').val(time).text(time);
+                                timeSelect.append(option);
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Ошибка при получении данных:', error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container mb-5 mt-5">
 <link href="{{ asset('css/categoriesServices.css') }}" rel="stylesheet">
     <h1>Добавить услугу</h1>
     <form action="{{ route('services.store') }}" method="POST">
@@ -26,7 +26,7 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Сохранить</button>
+        <button type="submit" class="btn btn-success mt-3">Сохранить</button>
     </form>
 </div>
 @endsection

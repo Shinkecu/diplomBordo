@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container mb-5 mt-5">
     <h1>Отзывы</h1>
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -32,7 +32,7 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-primary">Редактировать</a>
+                        <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-primary mb-2">Редактировать</a>
                         <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

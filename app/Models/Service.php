@@ -11,15 +11,12 @@ class Service extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    protected $fillable = [
+        'name', 'description', 'price', 'category_id'
+    ];
+
     public function masters()
     {
         return $this->belongsToMany(Master::class, 'master_service');
     }
-    protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'category_id',
-        // Add other fields as necessary
-    ];
 }

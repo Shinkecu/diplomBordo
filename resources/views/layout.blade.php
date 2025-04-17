@@ -25,10 +25,12 @@
                 </ul>
             </div>
             <div class="logo">
-                <span class="logo-main">BORDO</span>
-                <div class="logo-sub">
-                    <span class="text">BEAUTY STUDIO</span>
-                </div>
+                <a href="{{ route('home') }}" style="text-decoration: none;"> <!-- Добавляем ссылку -->
+                    <span class="logo-main">BORDO</span>
+                    <div class="logo-sub">
+                        <span class="text">BEAUTY STUDIO</span>
+                    </div>
+                </a>
             </div>
             <div class="right-links">
                 <ul class="nav-links">
@@ -66,7 +68,7 @@
 
 
     @yield('content')
-
+    @guest
     <footer>
         <div class="footer-links-container">
         <ul class="footer-links">
@@ -82,6 +84,8 @@
         <p class="footer-offer-info">Информация на данном интернет-сайте носит исключительно ознакомительный характер и ни при каких условиях не является публичной офертой. Цены на сайте носят ознакомительный характер и не являются публичным предложением.</p>
         <a class="legal-information" href="#">Правовая информация</a>
     </footer>
+    @endguest
+
 
 
     <!-- Подключаем Bootstrap JS через asset() -->
@@ -89,8 +93,10 @@
         @auth
     <form action="{{ route('admin.logout') }}" method="POST" class="logout-button">
         @csrf
+        <a href="{{ route('orders.index') }}" class="btn btn-primary">Управление</br>заказами</a>
         <button style="font-family: 'playfair'" type="submit" class="btn btn-danger">Выйти из панели</br>администратора</button>
     </form>
+
     @endauth
     <style>
         .logout-button {

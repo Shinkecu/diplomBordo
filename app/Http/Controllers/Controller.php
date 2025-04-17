@@ -41,7 +41,8 @@ class Controller extends BaseController
     public function editMasters()
     {
         $masters = Master::all();
-        return view('admin.editMasters', compact('masters'));
+        $categories = Category::with('services')->get(); // Получаем категории с услугами
+        return view('admin.editMasters', compact('masters', 'categories'));
     }
 
     public function updateMaster(Request $request, $master_id)
@@ -107,5 +108,21 @@ class Controller extends BaseController
         $master->delete();
 
         return redirect()->route('home')->with('success', 'Мастер успешно удален!');
+    }
+    public function attachService(Request $request, $master_id)
+    {
+        $master = Master::findOrFail($master_id);
+        $service_id = $request->input('service_id');
+        $master->services()->attach($service_id);
+
+        return redirect()->back()->with('success', 'Услуга успешно добавлена мастеру!');
+    }
+
+    public function detachService($master_id, $service_id)
+    {
+        $master = Master::findOrFail($master_id);
+        $master->services()->detach($service_id);
+
+        return redirect()->back()->with('success', 'Услуга успешно удалена у мастера!');
     }
 }

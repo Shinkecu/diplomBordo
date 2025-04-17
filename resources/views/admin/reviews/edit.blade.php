@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container mb-5 mt-5">
     <h1>Редактировать отзыв</h1>
     <form action="{{ route('reviews.update', $review->id) }}" method="POST" enctype="multipart/form-data">
         @csrf

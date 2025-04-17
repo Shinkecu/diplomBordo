@@ -22,6 +22,7 @@
     font-family: 'playfair-italic';
     src: url('/fonts/Playfair-Italic.ttf');
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -67,6 +68,13 @@ body {
     font-family: 'kaiseiopti-regular';
     font-size: 24px;
     display: block;
+    transition: all 0.3s ease; /* Добавляем плавный переход */
+}
+
+/* Анимация при наведении */
+.nav-links li a:hover {
+    color: #ffcc00; /* Меняем цвет текста */
+    transform: scale(1.1); /* Увеличиваем текст */
 }
 
 .left-links,
@@ -133,11 +141,6 @@ body {
     margin: 5px 0;
 }
 
-/* Стиль для чекбокса (скрываем его) */
-.menu-toggle {
-    display: none;
-}
-
 /* Мобильное меню */
 .mobile-nav {
     display: none;
@@ -169,58 +172,70 @@ body {
     font-size: 24px;
     color: white;
 }
-#first-left, #first-right{
+
+#first-left, #first-right {
     padding-left: 5%;
 }
-#last-left, #last-right{
+
+#last-left, #last-right {
     padding-right: 5%;
 }
+
 /* -------------------------------------------Footer------------------------------------------------- */
 
-footer{
+footer {
     background-color: #2C2C2C;
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.footer-links{
+
+.footer-links {
     display: flex;
     padding: 0px;
     gap: 5%;
     list-style: none;
 }
+
 .footer-links-container {
     width: 30%;
-    margin-left:5%;
+    margin-left: 5%;
 }
-.footer-links a{
+
+.footer-links a {
     text-decoration: none;
     color: white;
+    transition: all 0.3s ease; /* Добавляем плавный переход */
 }
-.footer-rights-info{
+
+.footer-links a:hover {
+    color: #ffcc00; /* Меняем цвет текста при наведении */
+}
+
+.footer-rights-info {
     color: white;
-    margin-left:5%;
+    margin-left: 5%;
     font-family: 'playfair';
     font-weight: 100;
     font-size: 20px;
     margin-top: 50px;
 }
 
-.footer-offer-info{
+.footer-offer-info {
     width: 30%;
     color: white;
-    margin-left:5%;
+    margin-left: 5%;
     font-family: 'playfair';
     font-weight: 100;
     font-size: 16px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.legal-information{
+
+.legal-information {
     color: white;
     text-decoration: none;
-    margin-left:5%;
+    margin-left: 5%;
 }
-
 
 /* Медиа-запросы для мобильных устройств */
 @media screen and (max-width: 768px) {
@@ -254,4 +269,3 @@ footer{
         display: block;
     }
 }
-

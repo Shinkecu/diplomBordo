@@ -2,7 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/categoriesServices.css') }}" rel="stylesheet">
-<div class="container">
+<div class="container mb-5 mt-5">
     <h1>Редактировать категорию</h1>
     <form action="{{ route('categories.update', $category->id) }}" method="POST">
         @csrf

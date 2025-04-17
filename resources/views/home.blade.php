@@ -15,6 +15,7 @@
                     class="location-button">МЕСТОПОЛОЖЕНИЕ</button></a>
         </div>
     </div>
+    ghbrjk
     <div class="advantages">
         <h1 id="advantages">ПРЕИМУЩЕСТВА</h1>
         <div class="container">
@@ -186,7 +187,7 @@
 
     @auth
         <div class="text-center mb-5">
-            <a href="{{ route('edit.masters') }}" class="btn btn-danger">Изменить список мастеров</a>
+            <a href="{{ route('masters.index') }}" class="btn btn-danger">Изменить список мастеров</a>
         </div>
     @endauth
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Review;
-
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends Controller
 {
@@ -32,8 +32,8 @@ class ReviewController extends Controller
     $review = Review::findOrFail($id); // Находим отзыв по ID
     $review->name = $request->input('name'); // Обновляем имя
     $review->content = $request->input('content'); // Обновляем содержимое отзыва
-    $review->date = $request->input('date'); // Обновляем дату
-
+    $review->created_at = $request->input('date'); // Обновляем дату
+    $review->updated_at = $request->input('date');
     // Обработка изображения
     if ($request->hasFile('image')) {
         // Удаляем старое изображение, если оно есть
@@ -55,7 +55,7 @@ class ReviewController extends Controller
         $review = Review::findOrFail($id); // Находим отзыв по ID
         $review->delete(); // Удаляем отзыв
 
-        return redirect()->route('admin.reviews.index')->with('success', 'Отзыв успешно удален.'); // Перенаправляем с сообщением об успехе
+        return redirect()->route('reviews.index')->with('success', 'Отзыв успешно удален.'); // Перенаправляем с сообщением об успехе
     }
 
     public function create(){
