@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Подключение Bootstrap CSS через asset() -->
-    <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Подключение основного CSS -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 
     <title>Document</title>
 </head>
