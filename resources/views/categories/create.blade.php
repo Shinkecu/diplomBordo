@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<link href="{{ asset('css/categoriesServices.css') }}" rel="stylesheet">
+<link href="/css/categoriesServices.css" rel="stylesheet">
     <div class="container mb-5 mt-5">
     <h1>Добавить категорию</h1>
     <form action="{{ route('categories.store') }}" method="POST">

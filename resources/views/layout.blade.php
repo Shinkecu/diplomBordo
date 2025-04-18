@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Подключение Bootstrap CSS через asset() -->
-    <link href="{{ asset('/bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Подключение основного CSS -->
     <link href="/css/main.css" rel="stylesheet">
@@ -106,6 +106,6 @@
             z-index: 1000; /* Чтобы кнопка была поверх других элементов */
         }
     </style>
-    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

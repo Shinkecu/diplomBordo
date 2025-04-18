@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+    <link href="/css/master.css" rel="stylesheet">
     <div class="leaf left"></div>
     <div class="leaf right"></div>
     <div class="container mt-5">

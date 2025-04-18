@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="/css/home.css" rel="stylesheet">
     <div class="container_home">
         <div class="leaf left"></div>
         <div class="leaf right"></div>

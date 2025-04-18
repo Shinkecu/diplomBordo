@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<link href="{{ asset('css/categoriesServices.css') }}" rel="stylesheet">
+<link href="/css/categoriesServices.css" rel="stylesheet">
 <div class="container mb-5 mt-5">
     <h1>Услуги</h1>
     <a href="{{ route('services.create') }}" class="btn btn-primary">Добавить услугу</a>

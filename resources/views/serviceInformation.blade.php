@@ -9,7 +9,7 @@
             </ul>
         </div>
     @endif
-    <link href="{{ asset('css/createOrder.css') }}" rel="stylesheet">
+    <link href="/css/createOrder.css" rel="stylesheet">
     <div class="leaf left"></div>
     <div class="leaf right"></div>
     <div class="container py-5">

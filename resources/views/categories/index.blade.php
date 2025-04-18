@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<link href="{{ asset('css/categoriesServices.css') }}" rel="stylesheet">
+<link href="/css/categoriesServices.css" rel="stylesheet">
 <div class="container mb-5 mt-5">
     <h1>Категории</h1>
     <a href="{{ route('categories.create') }}" class="btn btn-primary">Добавить категорию</a>

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+<link href="/css/admin.css" rel="stylesheet">
 <div class="leaf left"></div>
 <div class="leaf right"></div>
 <h1 class="text-center m-5">Вход в панель администратора</h1>

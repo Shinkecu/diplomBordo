@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+<link href="/css/admin.css" rel="stylesheet">
 
 <div class="container">
     <h1 class="text-center m-5">Редактирование заказа</h1>
