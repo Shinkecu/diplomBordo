@@ -15,7 +15,6 @@
                     class="location-button">МЕСТОПОЛОЖЕНИЕ</button></a>
         </div>
     </div>
-    ghbrjk
     <div class="advantages">
         <h1 id="advantages">ПРЕИМУЩЕСТВА</h1>
         <div class="container">
