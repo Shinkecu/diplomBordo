@@ -18,50 +18,100 @@
         <div class="slider-container">
             <div class="slider">
                 @foreach ($images as $image)
-                <img src="{{ asset($image->path) }}" alt="{{ $image->name }}">
+                    <img src="/{{$image->path}}" alt="{{ $image->description }}">
                 @endforeach
+                <!-- Дублируем изображения для бесшовного скролла -->
+                @if(count($images) > 0)
+                    @foreach ($images as $image)
+                        <img src="/{{$image->path}}" alt="{{ $image->description }}">
+                    @endforeach
+                @endif
             </div>
         </div>
         <style>
             .slider-container {
                 overflow: hidden;
-                width: 70%;
                 margin: auto;
                 position: relative;
-                margin-top: 100px;
-                margin-bottom: 100px;
+                margin-top: 50px;
+                margin-bottom: 50px;
             }
 
-            .slider {
+            .slider-container-name {
+                text-align: center;
+                margin-top: 50px;
+                font-family: 'kaiseiopti-regular', sans-serif;
+                margin-bottom: 50px;
+                font-size: 2.5rem;
+            }
+
+            .slider{
                 display: flex;
-                animation: slide 30s infinite;
+                gap: 20px; /* Заменяет margin у изображений */
+                padding: 10px 0;
             }
 
             .slider img {
-                width: 100%;
+                width: 300px;
+                height: 300px;
                 border-radius: 10px;
-                margin: 0 20px;
-            }
-
-            @keyframes slide {
-                0% {
-                    transform: translateX(0);
-                }
-
-                50% {
-                    transform: translateX(-50%);
-                }
-
-                100% {
-                    transform: translateX(0);
-                }
+                flex-shrink: 0;
+                object-fit: cover;
+                object-position: center;
             }
 
             .slider-names {
                 margin-top: 20px;
             }
-        </style>
 
+            /* Анимация только если фото достаточно */
+            .slider.animated {
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+        </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Функция для настройки слайдера
+            function setupSlider(sliderClass, animationName, duration) {
+                const slider = document.querySelector(`.${sliderClass}`);
+                if (!slider) return;
+
+                const images = slider.querySelectorAll('img');
+                const imageCount = images.length / 2; // Учитываем дублированные изображения
+                if (imageCount <= 3) {
+                    slider.style.justifyContent = 'center'; // Если мало фото, центрируем
+                    return; // Не запускаем анимацию
+                }
+
+                const imageWidth = 300; // Ширина изображения
+                const margin = 20; // Отступ
+                const totalWidth = (imageWidth + margin * 2) * imageCount;
+
+                // Устанавливаем ширину слайдера
+                slider.style.width = `${totalWidth * 2}px`; // Удваиваем для бесшовности
+
+                // Настраиваем анимацию
+                const keyframes = `
+                    @keyframes ${animationName} {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-${totalWidth}px); }
+                    }
+                `;
+
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+
+                slider.style.animation = `${animationName} ${duration}s linear infinite`;
+            }
+
+            // Настраиваем слайдеры (30s и 35s - длительность анимации)
+            setupSlider('slider', 'slide', 30);
+            setupSlider('slider2', 'slide2', 35);
+        });
+        </script>
 
         <div class="p-4 mx-auto form-container" style="max-width: 800px;">
             <form action="{{ route('createOrder' , [$id = $service->id])  }}" method="POST">

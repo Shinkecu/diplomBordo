@@ -15,10 +15,12 @@ class Images extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->text('path');
-            $table->integer('master-id')->nullable();
-            $table->integer('service-id')->nullable();
-            $table->text('name');
+            $table->string('path');
+            $table->foreignId('master_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('service_id')->nullable()->constrained()->onDelete('set null');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 

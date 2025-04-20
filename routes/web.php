@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,9 +73,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/masters/{master_id}/detach-service/{service_id}', [MasterController::class, 'detachService'])->name('masters.detachService');
 
     Route::get('/orders', [OrderController::class, 'adminIndex'])->name('orders.index');
-Route::get('/orders/{id}/edit', [OrderController::class, 'adminEdit'])->name('orders.edit');
-Route::put('/orders/{id}', [OrderController::class, 'adminUpdate'])->name('orders.update');
-Route::delete('/orders/{id}', [OrderController::class, 'adminDestroy'])->name('orders.destroy');
-});
+    Route::get('/orders/{id}/edit', [OrderController::class, 'adminEdit'])->name('orders.edit');
+    Route::put('/orders/{id}', [OrderController::class, 'adminUpdate'])->name('orders.update');
+    Route::delete('/orders/{id}', [OrderController::class, 'adminDestroy'])->name('orders.destroy');
 
+    Route::get('/image-view', [ImageController::class, 'index'])->name('images.index');
+    Route::post('/images-view', [ImageController::class, 'store'])->name('images.store');
+    Route::delete('/images-view/{id}', [ImageController::class, 'destroy'])->name('images.destroy');
+
+
+});
 

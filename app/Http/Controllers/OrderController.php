@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function index($id){
         $service = Service::find($id);
         $masters = Master::All();
-        $images = Image::where('service-id', $service->id)->get();
+        $images = Image::where('service_id', $service->id)->get();
         return view('serviceInformation', compact('masters','service','images'));
     }
     public function createOrder(Request $request, $id)

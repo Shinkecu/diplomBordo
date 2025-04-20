@@ -11,74 +11,87 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('admin.reviews.index', compact('reviews')); // Передаем отзывы в представление
+        return view('admin.reviews.index', compact('reviews'));
     }
 
     public function edit($id)
     {
-        $review = Review::findOrFail($id); // Находим отзыв по ID
-        return view('admin.reviews.edit', compact('review')); // Передаем отзыв в представление для редактирования
+        $review = Review::findOrFail($id);
+        return view('admin.reviews.edit', compact('review'));
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'content' => 'required|string|max:255',
-        'date' => 'required|date',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Валидация для изображения
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'content' => 'required|string|max:255',
+            'date' => 'required|date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    $review = Review::findOrFail($id); // Находим отзыв по ID
-    $review->name = $request->input('name'); // Обновляем имя
-    $review->content = $request->input('content'); // Обновляем содержимое отзыва
-    $review->created_at = $request->input('date'); // Обновляем дату
-    $review->updated_at = $request->input('date');
-    // Обработка изображения
-    if ($request->hasFile('image')) {
-        // Удаляем старое изображение, если оно есть
-        if ($review->image) {
-            Storage::delete($review->image);
+        $review = Review::findOrFail($id);
+        $review->name = $request->input('name');
+        $review->content = $request->input('content');
+        $review->created_at = $request->input('date');
+        $review->updated_at = $request->input('date');
+
+        // Обработка изображения
+        if ($request->hasFile('image')) {
+            // Удаляем старое изображение, если оно есть
+            if ($review->image) {
+                Storage::disk('public')->delete($review->image);
+            }
+            // Сохраняем новое изображение в storage/app/public/reviews
+            $path = $request->file('image')->store('images', 'public');
+            $review->image = $path;
         }
-        // Сохраняем новое изображение
-        $path = $request->file('image')->store('reviews'); // Сохраняем изображение в папку 'reviews'
-        $review->image = $path; // Обновляем путь к изображению
+
+        $review->save();
+
+        return redirect()->route('reviews.index')->with('success', 'Отзыв успешно обновлен.');
     }
-
-    $review->save(); // Сохраняем изменения
-
-    return redirect()->route('reviews.index')->with('success', 'Отзыв успешно обновлен.'); // Перенаправляем с сообщением об успехе
-}
 
     public function destroy($id)
     {
-        $review = Review::findOrFail($id); // Находим отзыв по ID
-        $review->delete(); // Удаляем отзыв
+        $review = Review::findOrFail($id);
 
-        return redirect()->route('reviews.index')->with('success', 'Отзыв успешно удален.'); // Перенаправляем с сообщением об успехе
+        // Удаляем изображение, если оно есть
+        if ($review->image) {
+            Storage::disk('public')->delete($review->image);
+        }
+
+        $review->delete();
+
+        return redirect()->route('reviews.index')->with('success', 'Отзыв успешно удален.');
     }
 
-    public function create(){
+    public function create()
+    {
         return view('createReview');
     }
+
     public function store(Request $request)
-{
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
+        $review = new Review();
+        $review->name = $request->input('name');
+        $review->telephone = $request->input('phone');
+        $review->content = $request->input('content');
 
-    $review = new Review(); // Создаем новый экземпляр модели Review
-    $review->name = $request->input('name'); // Устанавливаем имя
-    $review->telephone = $request->input('phone'); // Устанавливаем телефон
-    $review->content = $request->input('content'); // Устанавливаем содержимое отзыва
+        // Обработка изображения
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $review->image = $path;
+        }
 
+        $review->save();
 
-    // Обработка изображения
-    if ($request->hasFile('image')) {
-        $path = $request->file('image')->store('reviews'); // Сохраняем изображение в папку 'reviews'
-        $review->image = $path; // Устанавливаем путь к изображению
+        return redirect()->route('home')->with('success', 'Отзыв успешно создан.');
     }
-
-    $review->save(); // Сохраняем новый отзыв
-
-    return redirect()->route('home')->with('success', 'Отзыв успешно создан.');
-}
 }

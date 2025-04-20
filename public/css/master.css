@@ -22,7 +22,8 @@
 .master-image {
     width: 100%;
      /* Задайте фиксированную высоту для всех изображений */
-    object-fit: cover; /* Обеспечивает обрезку изображения, чтобы оно заполнило контейнер */
+     object-fit: cover;
+     object-position: center;
 }
 
 .master-information-name {
@@ -39,7 +40,7 @@
 }
 
 .master-information-button {
-    background-color: #66836E;
+    background-color: #2B512B;
     color: #fff;
     padding: 10px 30px;
     border-radius: 15px;
@@ -52,38 +53,48 @@
 /* -------------------------------------------slider------------------------------------------------- */
 .slider-container {
     overflow: hidden;
-    width: 70%;
     margin: auto;
     position: relative;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.slider {
+.slider-container-name {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'kaiseiopti-regular', sans-serif;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.slider{
     display: flex;
-    animation: slide 30s infinite;
+    gap: 20px; /* Заменяет margin у изображений */
+    padding: 10px 0;
 }
 
 .slider img {
-    width: 300px; /* Установите фиксированную ширину для изображений */
-    height: auto; /* Высота будет автоматически подстраиваться */
+    width: 300px;
+    height: 300px;
     border-radius: 10px;
-    margin: 0 20px;
-}
-
-@keyframes slide {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
 }
 
 .slider-names {
     margin-top: 20px;
-    font-family: 'kaiseiopti-regular';
 }
+
+/* Анимация только если фото достаточно */
+.slider.animated {
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 /* -------------------------------------------master-services------------------------------------------------- */
 .services {
-    width: 90%;
+    width: 100%;
     margin: auto;
     font-family: 'kaiseiopti-regular';
     text-align: center;
@@ -93,10 +104,6 @@
     font-size: 36px;
     margin-top: 200px;
     color: #333; /* Цвет заголовка */
-}
-
-.services_container {
-    margin-top: 100px;
 }
 
 .service {

@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Список мастеров</h1>
 
-    <a href="{{ route('masters.create') }}" class="btn btn-success mb-4">Добавить нового мастера</a>
+    <a href="{{ route('masters.create') }}" class="btn btn-green mb-4">Добавить нового мастера</a>
 
     @foreach ($masters as $master)
         <div class="mb-4 border p-4 rounded shadow-sm bg-light">

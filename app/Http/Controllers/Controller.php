@@ -19,7 +19,7 @@ class Controller extends BaseController
     public function master($master_id)
     {
         $master = Master::findOrFail($master_id);
-        $images = Image::where('master-id', $master->id)->get();
+        $images = Image::where('master_id', $master->id)->get();
 
         return view('master',compact('master', 'images'));
     }
@@ -28,7 +28,10 @@ class Controller extends BaseController
         $masters = Master::all();
         $categories = Category::all();
         $reviews = Review::all();
-        return view('home', compact('masters', 'categories', 'reviews'));
+        $manicureImages = Image::where('name', 'LIKE', '%РаботаМаникюрщиц%')->get();
+        $hairdresserImages = Image::where('name', 'LIKE', '%РаботаПарикмахера%')->get();
+
+        return view('home', compact('masters', 'categories', 'reviews', 'manicureImages', 'hairdresserImages'));
     }
 
 
@@ -125,4 +128,5 @@ class Controller extends BaseController
 
         return redirect()->back()->with('success', 'Услуга успешно удалена у мастера!');
     }
+
 }

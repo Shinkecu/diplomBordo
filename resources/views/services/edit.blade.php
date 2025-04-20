@@ -27,7 +27,7 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-success mt-3">Обновить</button>
+        <button type="submit" class="btn btn-green mt-3">Обновить</button>
     </form>
 </div>
 @endsection

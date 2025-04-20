@@ -26,7 +26,7 @@
                     <td>{{ $review->created_at->format('d m y') }}</td>
                     <td>
                         @if($review->image)
-                            <img src="{{ asset($review->image) }}" alt="Изображение отзыва" style="width: 50px; height: auto;">
+                            <img src="/{{$review->image}}" alt="Изображение отзыва" style="width: 50px; height: auto;">
                         @else
                             Нет изображения
                         @endif

@@ -24,11 +24,22 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота страницы */
     margin: 0;
     padding: 0;
     font-family: 'playfair';
 }
 
+main {
+    flex: 1; /* Занимает всё доступное пространство */
+}
+
+.btn-green {
+    color:white;
+    background-color: #2B512B;
+}
 .navbar {
     background-image: url('/images/header_bg.png');
     background-size: cover;
@@ -187,6 +198,8 @@ footer {
     background-color: #2C2C2C;
     padding-top: 50px;
     padding-bottom: 50px;
+    width: 100%;
+    flex-shrink: 0; /* Предотвращает сжатие футера */
 }
 
 .footer-links {
@@ -238,7 +251,7 @@ footer {
 }
 
 /* Медиа-запросы для мобильных устройств */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
     .navbar {
         height: auto;
     }

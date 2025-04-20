@@ -34,9 +34,9 @@
             </div>
             <div class="right-links">
                 <ul class="nav-links">
-                    <li id="first-right"><a href="#">Цены</a></li>
-                    <li><a href="#reviews">Отзывы</a></li>
-                    <li id="last-right"><a href="#contacts">Контакты</a></li>
+                    <li id="first-right"><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                    <li id="last-right"><a href="#">Вход</a></li>
                 </ul>
             </div>
 
@@ -56,9 +56,9 @@
                         <li><a href="{{ route('home') }}">О&nbsp;нас</a></li>
                         <li><a href="#services">Услуги</a></li>
                         <li><a href="#masters">Мастера</a></li>
-                        <li><a href="">Цены</a></li>
                         <li><a href="#reviews">Отзывы</a></li>
                         <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="">Вход</a></li>
                       </ul>
                     </div>
                   </div>
@@ -66,25 +66,26 @@
         </div>
     </nav>
 
+    <main>
+        @yield('content')
+    </main>
 
-    @yield('content')
-    @guest
+
     <footer>
         <div class="footer-links-container">
         <ul class="footer-links">
             <li><a href="{{ route('home') }}">О&nbsp;нас</a></li>
             <li><a href="#services">Услуги</a></li>
             <li><a href="#masters">Мастера</a></li>
-            <li><a href="">Цены</a></li>
             <li><a href="#reviews">Отзывы</a></li>
             <li><a href="#contacts">Контакты</a></li>
+            <li><a href="">Вход</a></li>
           </ul>
         </div>
         <h3 class="footer-rights-info">Bordo. Салон красоты в Москве. Все права защищены. 2025 г</h3>
         <p class="footer-offer-info">Информация на данном интернет-сайте носит исключительно ознакомительный характер и ни при каких условиях не является публичной офертой. Цены на сайте носят ознакомительный характер и не являются публичным предложением.</p>
         <a class="legal-information" href="#">Правовая информация</a>
     </footer>
-    @endguest
 
 
 

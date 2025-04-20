@@ -15,7 +15,7 @@
             <label for="description">Описание</label>
             <textarea name="description" class="form-control" required>{{ $category->description }}</textarea>
         </div>
-        <button type="submit" class="btn btn-success">Обновить</button>
+        <button type="submit" class="btn btn-green">Обновить</button>
     </form>
 </div>
 @endsection

@@ -44,8 +44,7 @@ class MasterController extends Controller
         $master->education = $request->education;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/images');
-            $master->image = Storage::url($path); // Сохраняем публичный URL
+            $master->image = $request->file('image')->store('images', 'public'); // Сохраняем публичный URL
         }
 
         $master->save();

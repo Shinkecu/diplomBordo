@@ -3,7 +3,7 @@
 <link href="/css/categoriesServices.css" rel="stylesheet">
 <div class="container mb-5 mt-5">
     <h1>Услуги</h1>
-    <a href="{{ route('services.create') }}" class="btn btn-primary">Добавить услугу</a>
+    <a href="{{ route('services.create') }}" class="btn btn-green">Добавить услугу</a>
     <table class="table">
         <thead>
             <tr>
@@ -24,7 +24,7 @@
                     <td>{{ $service->price }}</td>
                     <td>{{ $service->category->name }}</td>
                     <td>
-                        <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning">Редактировать</a>
+                        <a href="{{ route('services.edit', $service->id) }}" class="btn btn-green">Редактировать</a>
                     </td>
                 </tr>
             @endforeach

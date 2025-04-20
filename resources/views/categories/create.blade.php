@@ -10,11 +10,11 @@
             <label for="name">Название</label>
             <input type="text" name="name" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="description">Описание</label>
             <textarea name="description" class="form-control" required></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Сохранить</button>
+        <button type="submit" class="btn btn-green">Сохранить</button>
     </form>
 </div>
 @endsection

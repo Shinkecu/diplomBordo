@@ -2,48 +2,51 @@
     position: relative;
     width: 100%;
     padding: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 150px; /* Увеличенный отступ */
 }
 
 .leaf {
     position: absolute;
     width: 100px;
     height: auto;
+    z-index: 0;
 }
 
 .leaf.left {
-    top: -20px;
     left: 0px;
-    width: 30%;
+    width: 25%;
     content: url('/images/leaf-left.png');
 }
 
 .leaf.right {
-    top: -20px;
     right: -0px;
-    width: 30%;
+    width: 25%;
     content: url('/images/leaf-right.png');
 }
 
-
-
 .description {
-    font-size: 36px;
+    font-size: 1.5rem;
     color: #555555;
     margin: 20px auto;
-    font-family: 'playfair';
-    max-width: 50%;
+    font-family: 'playfair', serif;
+    max-width: 80%;
+    line-height: 1.6;
 }
 
 .map-container {
     position: relative;
     margin-top: 20px;
+    text-align: center;
 }
 
 .map {
-    width:60%;
+    width: 100%;
+
     border-radius: 30px;
+    margin: 0 auto;
 }
 
 .location-button {
@@ -61,64 +64,91 @@
     text-transform: uppercase;
     font-weight: bold;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 .location-button:hover {
     background-color: #555555;
 }
-.container_home h1{
-    font-family: 'playfair';
-    font-size: 36px;
+
+.container_home h1 {
+    font-family: 'playfair', serif;
+    font-size: 2.5rem; /* Увеличен размер */
     color: #333333;
+    margin-bottom: 30px; /* Увеличен отступ */
 }
-.adminButton{
-    font-family: 'playfair';
-    margin:10px;
+
+.adminButton {
+    font-family: 'playfair', serif;
+    margin: 10px;
 }
+
 /* -------------------------------------------advantages------------------------------------------------- */
 .advantages {
     margin: auto;
-    font-family: 'playfair';
+    font-family: 'playfair', serif;
     width: 90%;
+    max-width: 1400px;
+    margin-bottom: 150px; /* Увеличенный отступ */
 }
+
 .advantages h1 {
     text-align: center;
-    font-family: 'kaiseiopti-regular';
-    margin-top: 100px; /* Уменьшил отступ для лучшего вида */
-    margin-bottom: 50px; /* Добавил отступ снизу */
+    font-family: 'kaiseiopti-regular', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 50px; /* Увеличен отступ */
+    font-size: 2.5rem; /* Одинаковый размер */
 }
+
+.advantages .container {
+    padding: 0 15px; /* Отступы для мобильных устройств */
+}
+
 .advantages_card {
     background-color: #2B512B;
     color: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    font-size: 20px; /* Уменьшил размер шрифта для лучшего размещения текста */
+    font-size: 1rem; /* Базовый размер шрифта */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px; /* Фиксированная высота блоков */
-    margin-bottom: 20px; /* Отступ между блоками */
+    height: auto; /* Высота теперь автоматическая */
+    min-height: 150px; /* Минимальная высота для карточек */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Эффект при наведении */
 }
+
+.advantages_card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Тень для объема */
+}
+
 .advantages_card p {
-    margin: 0; /* Убираем отступы у текста */
-    line-height: 1.4; /* Улучшаем читаемость текста */
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem; /* Размер текста внутри карточки */
 }
+
 /* -------------------------------------------services------------------------------------------------- */
 .services {
     margin: auto;
     font-family: 'kaiseiopti-regular';
     text-align: center;
+    margin-bottom: 150px; /* Увеличенный отступ */
 }
 
 .services h1 {
-    font-size: 36px;
-    margin-top: 200px;
-    color: #333; /* Цвет заголовка */
+    font-size: 2.5rem; /* Одинаковый размер */
+    margin-top: 50px;
+    margin-bottom: 50px; /* Увеличен отступ */
+    color: #333;
+    font-family: 'kaiseiopti-regular', sans-serif; /* Единый шрифт */
 }
 
 .services_container {
-    margin-top: 100px;
+    margin-top: 50px; /* Уменьшен отступ сверху */
 }
 
 .service {
@@ -193,55 +223,64 @@
 .service.open .service-arrow {
     transform: rotate(180deg); /* Поворот стрелки при открытии */
 }
+
 /* -------------------------------------------slider------------------------------------------------- */
 .slider-container {
     overflow: hidden;
     margin: auto;
     position: relative;
-    margin-top: 100px;
-
+    margin-top: 50px;
+    margin-bottom: 150px;
 }
 
-.slider {
-    display: flex;
-    animation: slide 30s infinite;
-}
-.slider2 {
-    display: flex;
-    animation: slide 35s infinite;
-}
-.slider img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    margin: 0 20px;
-}
-.slider2 img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    margin: 0 20px;
-}
-@keyframes slide {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
-}
-.slider-names {
-margin-top: 20px;
-}
 .slider-container-name {
-text-align: center;
-margin-top: 200px;
-font-family: 'kaiseiopti-regular';
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'kaiseiopti-regular', sans-serif;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
 }
+
+.slider, .slider2 {
+    display: flex;
+    gap: 20px; /* Заменяет margin у изображений */
+    padding: 10px 0;
+}
+
+.slider img, .slider2 img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-names {
+    margin-top: 20px;
+}
+
+/* Анимация только если фото достаточно */
+.slider.animated, .slider2.animated {
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
 /* -------------------------------------------review------------------------------------------------- */
 .reviews-scroll-container {
-    overflow-x: auto; /* Включаем горизонтальный скролл */
-    white-space: nowrap; /* Запрещаем перенос элементов на новую строку */
-    padding-bottom: 20px; /* Добавляем отступ снизу для скролла */
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 20px;
+    margin-bottom: 150px; /* Увеличенный отступ */
+}
+
+.review-container-name {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'kaiseiopti-regular', sans-serif;
+    margin-bottom: 50px; /* Увеличен отступ */
+    font-size: 2.5rem; /* Одинаковый размер */
 }
 
 .reviews-scroll {
@@ -297,16 +336,21 @@ font-family: 'kaiseiopti-regular';
     font-size: 0.9rem;
 }
 
-.review-container-name {
-    text-align: center;
-    margin-top: 200px;
-    font-family: 'kaiseiopti-regular';
-}
+
 /* -------------------------------------------Masters------------------------------------------------- */
 .masters-scroll-container {
-    overflow-x: auto; /* Включаем горизонтальный скролл */
-    white-space: nowrap; /* Запрещаем перенос элементов на новую строку */
-    padding-bottom: 20px; /* Добавляем отступ снизу для скролла */
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 20px;
+    margin-bottom: 150px; /* Увеличенный отступ */
+}
+
+.masters-container-name {
+    font-family: 'kaiseiopti-regular', serif;
+    margin-top: 50px;
+    margin-bottom: 50px; /* Увеличен отступ */
+    text-align: center;
+    font-size: 2.5rem; /* Одинаковый размер */
 }
 
 .masters-scroll {
@@ -324,9 +368,7 @@ font-family: 'kaiseiopti-regular';
     border-radius: 15px; /* Скругление углов карточки */
 }
 
-.masters-container-name {
-    font-family: 'kaiseiopti-regular', serif;
-}
+
 
 .card-title {
     font-family: 'playfair', serif;
@@ -335,43 +377,190 @@ font-family: 'kaiseiopti-regular';
 .card-text {
     font-family: 'playfair', serif;
 }
+
 /* -------------------------------------------Questions------------------------------------------------- */
 .question-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    width:90%;
+    width: 90%;
     margin: auto;
-    font-family: 'playfair';
-    margin-top: 100px;
+    font-family: 'playfair', serif;
+    margin-top: 50px;
+    margin-bottom: 150px; /* Увеличенный отступ */
 }
-.question-card {
-width: 22%;
-font-size: 24px;
-}
-.question-container-name{
+
+.question-container-name {
     text-align: center;
-    margin-bottom: 50px;
-    margin-top: 200px;
-    font-family: 'kaiseiopti-regular';
+    margin-bottom: 50px; /* Увеличен отступ */
+    margin-top: 50px;
+    font-family: 'kaiseiopti-regular', sans-serif;
+    font-size: 2.5rem; /* Одинаковый размер */
 }
+
+.question-card {
+    width: 48%; /* Две карточки в ряд на средних экранах */
+    font-size: 1rem; /* Адаптивный размер шрифта */
+    margin-bottom: 20px; /* Отступ между карточками */
+}
+
+
 .question {
     background-color: #2B512B;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     color: white;
     padding: 4%;
+    font-size: 1rem; /* Адаптивный размер текста */
 }
-.answer{
+
+.answer {
     background-color: #E0E0E0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 4%;
-}
-/* -------------------------------------------Contacts------------------------------------------------- */
-.contacts-container-name{
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top: 200px;
-    font-family: 'kaiseiopti-regular';
+    font-size: 1rem; /* Адаптивный размер текста */
 }
 
+/* -------------------------------------------Contacts------------------------------------------------- */
+.contacts-section {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'playfair', serif;
+    margin-bottom: 150px; /* Увеличенный отступ */
+}
+
+.contacts-container-name {
+    font-size: 2.5rem; /* Одинаковый размер */
+    margin-bottom: 50px; /* Увеличен отступ */
+
+    font-family: 'kaiseiopti-regular', sans-serif; /* Единый шрифт */
+}
+
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+
+    text-decoration: none;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Медиа-запросы для адаптивности */
+
+@media (max-width: 1200px) {
+    .container_home h1,
+    .advantages h1,
+    .services h1,
+    .slider-container-name,
+    .review-container-name,
+    .masters-container-name,
+    .question-container-name,
+    .contacts-container-name {
+        font-size: 2.2rem; /* Адаптивный размер для всех заголовков */
+    }
+
+    .container_home,
+    .advantages,
+    .services,
+    .slider-container,
+    .reviews-scroll-container,
+    .masters-scroll-container,
+    .question-container,
+    .contacts-section {
+        margin-bottom: 120px; /* Адаптивный отступ */
+    }
+}
+
+@media (max-width: 992px) {
+    .container_home h1,
+    .advantages h1,
+    .services h1,
+    .slider-container-name,
+    .review-container-name,
+    .masters-container-name,
+    .question-container-name,
+    .contacts-container-name {
+        font-size: 2rem;
+    }
+
+    .container_home,
+    .advantages,
+    .services,
+    .slider-container,
+    .reviews-scroll-container,
+    .masters-scroll-container,
+    .question-container,
+    .contacts-section {
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container_home h1,
+    .advantages h1,
+    .services h1,
+    .slider-container-name,
+    .review-container-name,
+    .masters-container-name,
+    .question-container-name,
+    .contacts-container-name {
+        font-size: 1.8rem;
+    }
+
+    .container_home,
+    .advantages,
+    .services,
+    .slider-container,
+    .reviews-scroll-container,
+    .masters-scroll-container,
+    .question-container,
+    .contacts-section {
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container_home h1,
+    .advantages h1,
+    .services h1,
+    .slider-container-name,
+    .review-container-name,
+    .masters-container-name,
+    .question-container-name,
+    .contacts-container-name {
+        font-size: 1.6rem;
+    }
+
+    .container_home,
+    .advantages,
+    .services,
+    .slider-container,
+    .reviews-scroll-container,
+    .masters-scroll-container,
+    .question-container,
+    .contacts-section {
+        margin-bottom: 60px;
+    }
+}
